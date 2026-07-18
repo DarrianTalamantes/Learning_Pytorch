@@ -1,7 +1,7 @@
 # Purpose: This code is an improved version of First_Pytorch.py. 
 # I should be able to use classes and the saved model from this code without
 # Needing to run the whole thing.
-
+# Remember pytorch kinda sucks with Conda. Use pip3 to install instead.
 print("MAKE_MODEL IMPORTED")
 
 # Import Modules
@@ -138,3 +138,5 @@ def main():
 if __name__ == "__main__":
     print("######################## RUNNING MAIN ##################")
     main()
+
+    
