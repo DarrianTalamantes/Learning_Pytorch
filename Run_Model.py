@@ -14,9 +14,12 @@ from Make_model import NeuralNetwork #This imports our class we created in First
 # Loads in the model from First_Pytorch.py (model.pth)
 # Tells to use an accelerator like CUDA and if not use the cpu
 device = torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else "cpu"
-print(f"Using {device} device")
+print(f"Using {device} device {torch.cuda.get_device_name(0)}")
 model = NeuralNetwork().to(device)
 model.load_state_dict(torch.load("model.pth", weights_only=True))
+
+print(torch.cuda.get_device_name(0))
+
 
 # Load Data
 training_data = datasets.FashionMNIST(
@@ -52,7 +55,7 @@ classes = [
 ]
 
 model.eval()
-x, y = test_data[82][0], test_data[82][1]
+x, y = test_data[88][0], test_data[88][1]
 with torch.no_grad():
     x = x.to(device)
     pred = model(x)
